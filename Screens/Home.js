@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import HeaderTabs from "../Components/HeaderTabs";
 import SearchBar from "../Components/SearchBar";
+import Categories from "../Components/Categories";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <HeaderTabs />
         <SearchBar />
       </View>
+      <Categories />
     </SafeAreaView>
   );
 }
