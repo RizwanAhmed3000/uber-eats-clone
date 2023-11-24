@@ -26,7 +26,6 @@ const HeaderButton = ({ text, activeState, setActiveState }) => (
       paddingHorizontal: 16,
       paddingVertical: 6,
       borderRadius: 30,
-      marginTop: 5,
     }}
     onPress={() => setActiveState(text)}
   >
