@@ -34,9 +34,9 @@ const items = [
 
 export default function Categories() {
     return (
-        <View style={{ marginTop: 5, backgroundColor: "#fff", paddingVertical: 5, paddingLeft: 10 }}>
+        <View style={{ marginTop: 8, marginBottom: 8, backgroundColor: "#fff", paddingVertical: 5, paddingLeft: 10 }}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                <View style={{ flexDirection: "row", gap: 30, justifyContent: "space-around", padding: 10 }}>
+                <View style={{ flexDirection: "row", gap: 30, justifyContent: "space-around" }}>
                     {
                         items.map((item, index) => (
                             <View key={index} style={{ alignItems: "center", gap: 5 }}>

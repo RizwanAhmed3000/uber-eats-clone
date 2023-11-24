@@ -1,9 +1,10 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import { View, Text, SafeAreaView, TouchableOpacity, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import HeaderTabs from "../Components/HeaderTabs";
 import SearchBar from "../Components/SearchBar";
 import Categories from "../Components/Categories";
+import RestaurantItem from "../Components/RestaurantItem";
 
 export default function Home() {
   return (
@@ -13,7 +14,13 @@ export default function Home() {
         <HeaderTabs />
         <SearchBar />
       </View>
-      <Categories />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Categories />
+        <RestaurantItem />
+        <RestaurantItem />
+        <RestaurantItem />
+        <RestaurantItem />
+      </ScrollView>
     </SafeAreaView>
   );
 }
