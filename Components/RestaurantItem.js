@@ -2,24 +2,62 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Ionicons } from 'react-native-vector-icons'
 
+export const localRestaurants = [
+    {
+        name: "Beachside Bar",
+        image_url:
+            "https://static.onecms.io/wp-content/uploads/sites/9/2020/04/24/ppp-why-wont-anyone-rescue-restaurants-FT-BLOG0420.jpg",
+        categories: ["Cafe", "Bar"],
+        price: "$$",
+        reviews: 1244,
+        rating: 4.5,
+    },
+    {
+        name: "Benihana",
+        image_url:
+            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+        categories: ["Cafe", "Bar"],
+        price: "$$",
+        reviews: 1244,
+        rating: 3.7,
+    },
+    {
+        name: "Dubai's Grill",
+        image_url:
+            "https://www.timeoutdubai.com/cloud/timeoutdubai/2023/06/06/HTPbhCYv-Sushisamba-1200x897.jpg",
+        categories: ["Dubai", "Bar"],
+        price: "$$",
+        reviews: 700,
+        rating: 4.9,
+    },
+];
+
 export default function RestaurantItem() {
     return (
-        <View style={{
-            paddingVertical: 10,
-            paddingHorizontal: 15,
-            backgroundColor: "white",
-            marginVertical: 5,
-        }}>
-            <RestaurantImage />
-            <RestaurantInfo />
-        </View>
+        <>
+            {
+                localRestaurants.map((item, index) => (
+                    <TouchableOpacity activeOpacity={0.7}>
+                        <View key={index} style={{
+                            paddingVertical: 10,
+                            paddingHorizontal: 15,
+                            backgroundColor: "white",
+                            marginVertical: 5,
+                        }}>
+                            <RestaurantImage itemImage={item?.image_url} />
+                            <RestaurantInfo item={item} />
+                        </View>
+                    </TouchableOpacity>
+                ))
+            }
+        </>
     )
 }
 
-const RestaurantImage = () => (
+const RestaurantImage = ({ itemImage }) => (
     <>
         <Image
-            source={{ uri: "https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D" }}
+            source={{ uri: itemImage }}
             style={{ width: '100%', height: 180 }} />
         <TouchableOpacity
             style={{ position: "absolute", right: 20, top: 15 }}
@@ -28,7 +66,7 @@ const RestaurantImage = () => (
         </TouchableOpacity>
     </>
 )
-const RestaurantInfo = () => (
+const RestaurantInfo = ({ item }) => (
     <View style={{
         flexDirection: 'row',
         alignItems: "center",
@@ -41,7 +79,7 @@ const RestaurantInfo = () => (
                     fontSize: 15,
                     fontWeight: "bold"
                 }}
-            >The Restaurant</Text>
+            >{item?.name}</Text>
             <Text style={{
                 color: "grey",
                 fontSize: 12,
@@ -58,7 +96,7 @@ const RestaurantInfo = () => (
             padding: 10,
             borderRadius: 50
         }}>
-            4.5
+            {item?.rating}
         </Text>
     </View>
 )
